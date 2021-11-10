@@ -45,14 +45,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_run_news">
+      <widget class="QPushButton" name="btn_run_musicplayer">
        <property name="text">
         <string>Run MusicPlayer</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_run_musicplayer">
+      <widget class="QPushButton" name="btn_run_news">
        <property name="text">
         <string>Run News</string>
        </property>
