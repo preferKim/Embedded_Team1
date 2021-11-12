@@ -12,7 +12,7 @@ class musicPlayerWindow(QDialog):
         uic.loadUi("Task/task_musicplayer.ui", self)
         
         # 윈도우 타이틀, 사이즈 설정
-        self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
+        #self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
         self.setWindowTitle("Music") # 윈도우 타이틀 설정     
         self.show()
 
