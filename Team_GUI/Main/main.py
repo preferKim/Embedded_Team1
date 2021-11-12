@@ -7,8 +7,9 @@ from PyQt5.QtCore import Qt, QTimer # 로딩화면 위한 타이머
 from PyQt5.QtGui import QMovie  # 로딩화면 gif 위한 모듈
 # import task
 from Task import task_email_02
+from Task import run_email
 from Task import task_musicplayer
-from Task import task_news
+from Task import task_news 
 from Task import task_loading
 
 # ui 로드
@@ -25,7 +26,7 @@ class WindowClass(QMainWindow, form_class):
         # self.setFixedSize(600, 400)
         
         # Loading Image
-        self.loading_screen = task_loading.LoadingScreen()   # 로딩함수 호출
+        # self.loading_screen = task_loading.LoadingScreen()   # 로딩함수 호출(로딩화면 로드)
         
         ### 기능연결 ###
         # icon 이미지 로드

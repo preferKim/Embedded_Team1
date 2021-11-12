@@ -19,10 +19,7 @@ class newsWindow(QDialog):
         # 뉴스 출처 이미지 표기
         self.label_newsImage.setPixmap(self.loadImageFromFile("image_source/img_album_sample.png", 200))
         
-        # 이전페이지, 다음페이지
-        self.btn_prevpage.clicked.connect(self.toPrevPage)
-        self.btn_nextpage.clicked.connect(self.toNextPage)
-
+        # 
         # Back: Close Window
         self.btn_back.clicked.connect(self.backToMainWindow)
 
