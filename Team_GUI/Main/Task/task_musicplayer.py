@@ -10,20 +10,22 @@ import random
 class musicPlayerWindow(QDialog):
     def __init__(self, parent): # 부모 윈도우(메모장)가 있기 때문에 parent 적어주기
         super(musicPlayerWindow, self).__init__(parent)
-        uic.loadUi("Task\\task_musicplayer.ui", self)
+        uic.loadUi("Task/task_musicplayer.ui", self)
         
         # 윈도우 타이틀, 사이즈 설정
-        self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
+        #self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
         self.setWindowTitle("Music") # 윈도우 타이틀 설정     
         self.show()
 
         ### 기능연결 ###
         # 앨범 이미지, 노래 타이틀
-        self.label_ALBUM.setPixmap(self.loadImageFromFile("image_source\\img_album_sample.png", 200))
+        self.label_ALBUM.setPixmap(self.loadImageFromFile("image_source/img_album_sample.png", 200))
         
         # Play, Stop
         self.btn_play.clicked.connect(self.playSongFunction)
         self.btn_stop.clicked.connect(self.stopSongFunction)
+        self.btn_next.clicked.connect(self.playNextSong)
+        self.btn_prev.clicked.connect(self.playNextSong)
         
         # Back: Close Window
         self.btn_back.clicked.connect(self.backToMainWindow)
@@ -37,23 +39,35 @@ class musicPlayerWindow(QDialog):
     
     def musicList(self):
         songList = []
-        songList.append("./music_task_1112/Alex Cohen - Good Old Times.mp3")
-        songList.append("./music_task_1112/Sound Creator - Christmas Postcard.mp3")
+        songList.append("./audio_source/Alex Cohen - Good Old Times.mp3")
+        songList.append("./audio_source/Sound Creator - Christmas Postcard.mp3")
         return songList
 
     def playSongFunction(self):
         ### 노래재생 소스코드 실행 ###
-        print("play song")
+        print("play song...")
         mixer.init()
         song_list = self.musicList()
         a = random.randint(0, len(song_list)-1)
         mixer.music.load(song_list[a])
         mixer.music.play()
-    
+        print(f"song is now playing...{a+1}")
+        
     def stopSongFunction(self):
         ### 노래중지 소스코드 실행 ###
-        print("stop song")
+        print("stop song...")
         mixer.music.fadeout(1000)
+        pass
+    
+    def playNextSong(self):
+        ### 다음곡 실행 소스코드 ###
+        print("play next song...")
+        pass
+    
+    def playPrevSong(self):
+        ### 이전곡 실행 소스코드 ### 
+        print("play prev song...")
+        pass
     
     # 현재 dialog 창 종료
     def backToMainWindow(self):

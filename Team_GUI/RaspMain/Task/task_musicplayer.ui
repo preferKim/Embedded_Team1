@@ -83,8 +83,8 @@
    <widget class="QLabel" name="label_song">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>150</y>
+      <x>20</x>
+      <y>160</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -93,30 +93,17 @@
      <string>Artist - Song</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_prev">
+   <widget class="QSlider" name="slider_song">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>180</y>
-      <width>75</width>
-      <height>23</height>
+      <y>190</y>
+      <width>160</width>
+      <height>22</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Prev</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_next">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>180</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Next</string>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>

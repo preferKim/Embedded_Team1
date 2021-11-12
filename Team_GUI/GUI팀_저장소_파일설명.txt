@@ -1,0 +1,2 @@
+task_new.py 에서 news scraper와 연동
+task_email.py 에서 email scraper와 연동..
