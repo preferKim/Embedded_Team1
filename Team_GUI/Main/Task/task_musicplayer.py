@@ -5,7 +5,6 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.QtGui import *
 from pygame import mixer
-import random
 
 class musicPlayerWindow(QDialog):
     def __init__(self, parent): # 부모 윈도우(메모장)가 있기 때문에 parent 적어주기
@@ -41,6 +40,7 @@ class musicPlayerWindow(QDialog):
         songList = []
         songList.append("./audio_source/Alex Cohen - Good Old Times.mp3")
         songList.append("./audio_source/Sound Creator - Christmas Postcard.mp3")
+        songList.append("./audio_source/BDKSonic - Riverside Walk Dreamy Romantic Emotional Piano.mp3")
         return songList
 
     def playSongFunction(self):
