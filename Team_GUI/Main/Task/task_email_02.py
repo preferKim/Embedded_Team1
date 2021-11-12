@@ -17,8 +17,8 @@ class emailWindow(QDialog):
         self.setupUI()
         
         # 사용자 이메일(@daum.net제외), 비밀번호 입력
-        self.user_id = "다음 아이디"
-        self.user_pw = "다음 패스워드"
+        self.user_id = "nalbojima"
+        self.user_pw = "2agl2sn2st#"
         self.current_row = 0
         self.num_to_load = 24 # 초기화시에 처음에 이메일 몇개 불러올건지에 대한 갯수
         
@@ -53,7 +53,6 @@ class emailWindow(QDialog):
 
     # 이메일 로딩 테스트함수
     def loadEmailFunction_test(self):
-        # row_num = self.current_row
         # 최대 3개 페이지까지 구성, 한 페이지당 메일 목록 8개
         if (self.current_row + 8) <= (self.num_to_load):
             print(f"email loading... start row : {self.current_row}")

@@ -11,6 +11,7 @@ from Task import run_email
 from Task import task_musicplayer
 from Task import task_news 
 from Task import task_loading
+from Task import task_calender
 
 # ui 로드
 form_class = uic.loadUiType("main.ui")[0]   
@@ -35,20 +36,26 @@ class WindowClass(QMainWindow, form_class):
         #self.label_icon3.setPixmap(self.loadImageFromFile("image_source/icon_news.png", 100))
 
         # 버튼 기능연결, lambda: "TypeError: argument 1 has unexpected type 'NoneType'" 방지하기 위해 사용 
+        # 이메일 
         self.btn_run_email.clicked.connect(self.openEmailWindow)
         self.btn_run_email.setIcon(QIcon('image_source/mail_4.png'))
         self.btn_run_email.setIconSize(QSize(200,200))
         self.btn_run_email.setStyleSheet('border:0px;')
         
+        # 뮤직플레이어
         self.btn_run_musicplayer.clicked.connect(self.openMusicPlayerWindow)
         self.btn_run_musicplayer.setIcon(QIcon('image_source/music_1.png'))
         self.btn_run_musicplayer.setIconSize(QSize(110,110))
         self.btn_run_musicplayer.setStyleSheet('border:0px;')
 
+        # 뉴스
         self.btn_run_news.clicked.connect(self.openNewsWindow)
         self.btn_run_news.setIcon(QIcon('image_source/news_3.png'))
         self.btn_run_news.setIconSize(QSize(115,115))
         self.btn_run_news.setStyleSheet('border:0px;')
+        
+        # 캘린더
+        self.btn_run_calender.clicked.connect(self.openCalenderWindow)
         
     ### 기능함수 ### 
     # 이미지 로드
@@ -68,6 +75,8 @@ class WindowClass(QMainWindow, form_class):
     def openNewsWindow(self):
         task_news.newsWindow(self)
     
+    def openCalenderWindow(self):
+        task_calender.calenderWindow(self)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

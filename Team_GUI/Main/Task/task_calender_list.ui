@@ -16,10 +16,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>471</width>
-     <height>361</height>
+     <x>20</x>
+     <y>50</y>
+     <width>461</width>
+     <height>261</height>
     </rect>
    </property>
    <property name="font">
@@ -29,7 +29,7 @@
     </font>
    </property>
    <property name="title">
-    <string>Email</string>
+    <string>Schedule</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -40,28 +40,33 @@
       <x>10</x>
       <y>30</y>
       <width>441</width>
-      <height>321</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="rowCount">
      <number>0</number>
     </property>
     <property name="columnCount">
-     <number>3</number>
+     <number>4</number>
     </property>
     <column>
      <property name="text">
-      <string>도착시각</string>
+      <string>날짜</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>보낸 사람</string>
+      <string>시작</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>제목</string>
+      <string>종료 </string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>내용</string>
      </property>
     </column>
    </widget>
@@ -71,15 +76,15 @@
     <rect>
      <x>490</x>
      <y>10</y>
-     <width>81</width>
+     <width>95</width>
      <height>91</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="btn_load_email">
+     <widget class="QPushButton" name="btn_load_schedule">
       <property name="text">
-       <string>Load Email</string>
+       <string>Load Schedule</string>
       </property>
      </widget>
     </item>
