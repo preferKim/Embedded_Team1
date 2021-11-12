@@ -24,9 +24,9 @@ class WindowClass(QMainWindow, form_class):
         
         ### 기능연결 ###
         # icon 이미지 로드
-        self.label_icon1.setPixmap(self.loadImageFromFile("image_source/icon_email.png", 120))  
-        self.label_icon2.setPixmap(self.loadImageFromFile("image_source/icon_musicplayer.png", 100))
-        self.label_icon3.setPixmap(self.loadImageFromFile("image_source/icon_news.png", 100))
+        self.label_icon1.setPixmap(self.loadImageFromFile("image_source//icon_email.png", 120))  
+        self.label_icon2.setPixmap(self.loadImageFromFile("image_source\\icon_musicplayer.png", 100))
+        self.label_icon3.setPixmap(self.loadImageFromFile("image_source\\icon_news.png", 100))
 
         # 버튼 기능연결, lambda: "TypeError: argument 1 has unexpected type 'NoneType'" 방지하기 위해 사용 
         self.btn_run_email.clicked.connect(self.openEmailWindow)        

@@ -4,11 +4,12 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.QtGui import *
+from pygame import mixer
 
 class musicPlayerWindow(QDialog):
     def __init__(self, parent): # 부모 윈도우(메모장)가 있기 때문에 parent 적어주기
         super(musicPlayerWindow, self).__init__(parent)
-        uic.loadUi("Task\\task_musicplayer.ui", self)
+        uic.loadUi("Task/task_musicplayer.ui", self)
         
         # 윈도우 타이틀, 사이즈 설정
         self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
@@ -17,11 +18,13 @@ class musicPlayerWindow(QDialog):
 
         ### 기능연결 ###
         # 앨범 이미지, 노래 타이틀
-        self.label_ALBUM.setPixmap(self.loadImageFromFile("image_source\\img_album_sample.png", 200))
+        self.label_ALBUM.setPixmap(self.loadImageFromFile("image_source/img_album_sample.png", 200))
         
         # Play, Stop
         self.btn_play.clicked.connect(self.playSongFunction)
         self.btn_stop.clicked.connect(self.stopSongFunction)
+        self.btn_next.clicked.connect(self.playNextSong)
+        self.btn_prev.clicked.connect(self.playNextSong)
         
         # Back: Close Window
         self.btn_back.clicked.connect(self.backToMainWindow)
@@ -35,10 +38,29 @@ class musicPlayerWindow(QDialog):
     
     def playSongFunction(self):
         ### 노래재생 소스코드 실행 ###
-        pass
-    
+        print("play song...")
+        mixer.init()
+        mixer.music.load("audio_source/AlexCohen - Good Old Times.mp3")
+        mixer.music.play()
+        cnt = 0 
+        while mixer.music.get_busy() == True:
+            print(f"song is now playing...{cnt}")
+            cnt += 1
+            continue
+        
     def stopSongFunction(self):
         ### 노래중지 소스코드 실행 ###
+        print("stop song...")
+        pass
+    
+    def playNextSong(self):
+        ### 다음곡 실행 소스코드 ###
+        print("play next song...")
+        pass
+    
+    def playPrevSong(self):
+        ### 이전곡 실행 소스코드 ### 
+        print("play prev song...")
         pass
     
     # 현재 dialog 창 종료
