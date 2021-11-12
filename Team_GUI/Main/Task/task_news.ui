@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
-    <height>367</height>
+    <width>573</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>430</x>
      <y>150</y>
      <width>101</width>
      <height>170</height>
@@ -61,30 +61,30 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btn_03_social">
-      <property name="text">
-       <string>사회</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btn_04_international">
-      <property name="text">
-       <string>국제</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QPushButton" name="btn_05_culture">
       <property name="text">
-       <string>문화</string>
+       <string>정치</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="btn_06_celebrity">
       <property name="text">
+       <string>사회</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_06_celebrity_2">
+      <property name="text">
        <string>연예</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_06_celebrity_3">
+      <property name="text">
+       <string>스포츠</string>
       </property>
      </widget>
     </item>

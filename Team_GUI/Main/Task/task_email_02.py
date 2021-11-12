@@ -22,8 +22,8 @@ class emailWindow(QDialog):
         self.current_row = 0
         self.num_to_load = 24 # 초기화시에 처음에 이메일 몇개 불러올건지에 대한 갯수
         
-        # 이메일 로딩 버튼 연결
-        self.btn_load_email.clicked.connect(self.loadEmailFunction_test)
+        # next, prev page 버튼 연결(첫 이메일은 자동으로 로드됨)
+        # self.btn_load_email.clicked.connect(self.loadEmailFunction)
         self.btn_next_page.clicked.connect(self.loadNextPage)
         self.btn_prev_page.clicked.connect(self.loadPrevPage)
         
@@ -33,6 +33,8 @@ class emailWindow(QDialog):
         # run_email.py 에서 메일 리스트 가져옴
         self.mail_list = run_email.imap_daum(self.user_id, self.user_pw, self.num_to_load)   
         
+        # 이메일 아이콘 클릭시 자동으로 이메일 리스트 불러옴
+        self.loadEmailFunction()
         self.show()
 
     # UI 타이틀, 크기 조절
@@ -52,7 +54,7 @@ class emailWindow(QDialog):
         self.tableWidget.setItem(1, 1, QTableWidgetItem("data"))
 
     # 이메일 로딩 테스트함수
-    def loadEmailFunction_test(self):
+    def loadEmailFunction(self):
         # 최대 3개 페이지까지 구성, 한 페이지당 메일 목록 8개
         if (self.current_row + 8) <= (self.num_to_load):
             print(f"email loading... start row : {self.current_row}")
@@ -70,7 +72,7 @@ class emailWindow(QDialog):
     def loadNextPage(self):
         if (self.current_row + 8) <= (self.num_to_load):
             print("load next page...")
-            self.loadEmailFunction_test() 
+            self.loadEmailFunction() 
         else:
             print("마지막 페이지입니다.")
     
@@ -78,7 +80,7 @@ class emailWindow(QDialog):
         if (self.current_row - 16) >= 0: 
             print("load prev page...")
             self.current_row -= 16 # 8만큼의 인덱스를 빼줌
-            self.loadEmailFunction_test()
+            self.loadEmailFunction()
         else:
             print("첫 페이지 입니다.")
 

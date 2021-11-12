@@ -16,11 +16,14 @@ class musicPlayerWindow(QDialog):
         #self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
         self.setWindowTitle("Music")  # 윈도우 타이틀 설정
         self.show()
-        self.songList_index = 0
+        self.songList_index = 0 # 재생 중인 노래 인덱스
+        
         ### 기능연결 ###
         # 앨범 이미지, 노래 타이틀
+        self.list_album_cover = self.setAlbumCover()
+        self.list_song_titles = self.setSongTitle()
         self.label_ALBUM.setPixmap(self.loadImageFromFile(
-            "image_source/img_album_sample.png", 200))
+            "image_source/song_defalut_cover.png", 200))
 
         # Play, Stop
         self.btn_play.clicked.connect(self.playSongFunction)
@@ -49,6 +52,20 @@ class musicPlayerWindow(QDialog):
             "./audio_source/BDKSonic - Riverside Walk Dreamy Romantic Emotional Piano.mp3")
         return songList
 
+    def setAlbumCover(self):
+        covers = [] 
+        covers.append("./image_source/song0_cover.jpg")
+        covers.append("./image_source/song1_cover.jpg")
+        covers.append("./image_source/song2_cover.jpg")
+        return covers
+    
+    def setSongTitle(self):
+        title = [] 
+        title.append("Alex Cohen - Good Old Times")
+        title.append("Sound Creator - Christmas Postcard")
+        title.append("BDKSonic - Riverside Walk")
+        return title
+
     def playSongFunction(self):
         ### 노래재생 소스코드 실행 ###
         print("play song...")
@@ -58,6 +75,8 @@ class musicPlayerWindow(QDialog):
             self.songList_index -= 1
         elif(self.songList_index < 0):
             self.songList_index += 1
+        self.label_ALBUM.setPixmap(self.loadImageFromFile(self.list_album_cover[self.songList_index], 200))
+        self.label_song.setText(self.list_song_titles[self.songList_index])
         mixer.music.load(song_list[self.songList_index])
         mixer.music.play()
         print(f"song is now playing...{self.songList_index+1}")
@@ -65,6 +84,9 @@ class musicPlayerWindow(QDialog):
     def stopSongFunction(self):
         ### 노래중지 소스코드 실행 ###
         print("stop song...")
+        self.label_ALBUM.setPixmap(self.loadImageFromFile(
+            "image_source/song_defalut_cover.png", 200))
+        self.label_song.setText("Play the song!")
         mixer.music.fadeout(1000)
 
     def playNextSong(self):
