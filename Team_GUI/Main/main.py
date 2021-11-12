@@ -1,10 +1,13 @@
 import sys
+import urllib.request
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5 import uic
 from PyQt5.QtCore import Qt, QTimer # 로딩화면 위한 타이머
 from PyQt5.QtGui import QMovie  # 로딩화면 gif 위한 모듈
+from PyQt5.QtCore import QDateTime, Qt  # 시간 표기
+
 # import task
 from Task import task_email_02
 from Task import run_email
@@ -12,6 +15,8 @@ from Task import task_musicplayer
 from Task import task_news 
 from Task import task_loading
 from Task import task_calender
+from Task import tast_weather
+from news_scrap import naver_current_weather, naver_current_weather_Icon # 날씨
 
 # ui 로드
 form_class = uic.loadUiType("main.ui")[0]   
@@ -29,12 +34,18 @@ class WindowClass(QMainWindow, form_class):
         # Loading Image
         # self.loading_screen = task_loading.LoadingScreen()   # 로딩함수 호출(로딩화면 로드)
         
-        ### 기능연결 ###
-        # icon 이미지 로드
-        #self.label_icon1.setPixmap(self.loadImageFromFile("image_source/icon_email.png", 120))  
-        #self.label_icon2.setPixmap(self.loadImageFromFile("image_source/icon_musicplayer.png", 100))
-        #self.label_icon3.setPixmap(self.loadImageFromFile("image_source/icon_news.png", 100))
+        # 시간 계산
+        self.datetime = QDateTime.currentDateTime()
 
+        # 날씨 아이콘
+        wt = naver_current_weather_Icon()
+        url = f"https://ssl.pstatic.net/static/weather/image/icon_weather/{wt}.svg"
+        image = urllib.request.urlopen(url).read()
+        pixmap = QPixmap()
+        pixmap.loadFromData(image)
+        pixmap = pixmap.scaled(36, 36)
+        self.label_icon1.setPixmap(pixmap)
+        
         # 버튼 기능연결, lambda: "TypeError: argument 1 has unexpected type 'NoneType'" 방지하기 위해 사용 
         # 이메일 
         self.btn_run_email.clicked.connect(self.openEmailWindow)
@@ -56,6 +67,16 @@ class WindowClass(QMainWindow, form_class):
         
         # 캘린더
         self.btn_run_calender.clicked.connect(self.openCalenderWindow)
+        # 시간 표시 상태바
+        self.statusBar().showMessage(self.datetime.toString(Qt.DefaultLocaleShortDate)) 
+        self.statusBar().setStyleSheet('font-size:14pt;')   # 날짜 시간 표시
+
+        # 날씨 버튼
+        weather = naver_current_weather()
+        self.btn_weather.clicked.connect(self.openWeather)
+        self.btn_weather.setText(weather)
+        self.btn_weather.setStyleSheet('font-size:12pt; font:bold; border:0px;')
+        
         
     ### 기능함수 ### 
     # 이미지 로드
@@ -74,6 +95,9 @@ class WindowClass(QMainWindow, form_class):
         
     def openNewsWindow(self):
         task_news.newsWindow(self)
+        
+    def openWeather(self):
+        tast_weather.weatherWindow(self)
     
     def openCalenderWindow(self):
         task_calender.calenderWindow(self)
