@@ -39,4 +39,3 @@ class weatherWindow(QDialog):
 
     def backToMainWindow(self):
         self.close()
-        print("close dialog...")
