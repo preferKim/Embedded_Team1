@@ -8,7 +8,7 @@ class emailWindow(QDialog):
     def __init__(self, parent): # 부모 윈도우(메모장)가 있기 때문에 parent 적어주기
         super(emailWindow, self).__init__(parent)
         uic.loadUi("Task/task_email.ui", self)
-        self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
+        #self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
         self.setWindowTitle("e-mail") # 윈도우 타이틀 설정        
         self.show()
 
