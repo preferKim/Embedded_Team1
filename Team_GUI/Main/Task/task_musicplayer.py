@@ -5,6 +5,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.QtGui import *
 from pygame import mixer
+import random
 
 class musicPlayerWindow(QDialog):
     def __init__(self, parent): # 부모 윈도우(메모장)가 있기 때문에 parent 적어주기
@@ -36,21 +37,26 @@ class musicPlayerWindow(QDialog):
         self.qPixmapFileVar = self.qPixmapFileVar.scaledToWidth(width_size)  # 크기 조절
         return self.qPixmapFileVar
     
+    def musicList(self):
+        songList = []
+        songList.append("./audio_source/Alex Cohen - Good Old Times.mp3")
+        songList.append("./audio_source/Sound Creator - Christmas Postcard.mp3")
+        return songList
+
     def playSongFunction(self):
         ### 노래재생 소스코드 실행 ###
         print("play song...")
         mixer.init()
-        mixer.music.load("audio_source/AlexCohen - Good Old Times.mp3")
+        song_list = self.musicList()
+        a = random.randint(0, len(song_list)-1)
+        mixer.music.load(song_list[a])
         mixer.music.play()
-        cnt = 0 
-        while mixer.music.get_busy() == True:
-            print(f"song is now playing...{cnt}")
-            cnt += 1
-            continue
+        print(f"song is now playing...{a+1}")
         
     def stopSongFunction(self):
         ### 노래중지 소스코드 실행 ###
         print("stop song...")
+        mixer.music.fadeout(1000)
         pass
     
     def playNextSong(self):

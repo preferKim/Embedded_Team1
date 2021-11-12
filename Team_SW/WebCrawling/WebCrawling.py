@@ -1,4 +1,16 @@
 import requests
-r = requests.get('https://search.naver.com/search.naver?query=%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%9B%90&where=news&ie=utf8&sm=nws_hty')
+from bs4 import BeautifulSoup
+
+r = requests.get('https://news.naver.com/',headers={'User-Agent':'Mozilla/5.0'})
 html_doc = r.text
-print(html_doc)
+bs = BeautifulSoup(html_doc,'html.parser')
+
+print(bs.select('#today_main_news > div.hdline_news > ul > li:nth-child(1) > div.hdline_article_tit > a')[0].text)
+print(bs.select('#today_main_news > div.hdline_news > ul > li:nth-child(2) > div.hdline_article_tit > a')[0].text)
+print(bs.select('#today_main_news > div.hdline_news > ul > li:nth-child(3) > div.hdline_article_tit > a')[0].text)
+print(bs.select('#today_main_news > div.hdline_news > ul > li:nth-child(4) > div.hdline_article_tit > a')[0].text)
+
+
+
+
+

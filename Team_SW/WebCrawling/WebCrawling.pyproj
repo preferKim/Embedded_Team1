@@ -22,6 +22,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="WebCrawling.py" />
+    <Compile Include="Calendar.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="chromedriver.exe" />
+    <Content Include="client.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
