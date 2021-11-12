@@ -67,6 +67,7 @@ class WindowClass(QMainWindow, form_class):
         
         # 캘린더
         self.btn_run_calender.clicked.connect(self.openCalenderWindow)
+        
         # 시간 표시 상태바
         self.statusBar().showMessage(self.datetime.toString(Qt.DefaultLocaleShortDate)) 
         self.statusBar().setStyleSheet('font-size:14pt;')   # 날짜 시간 표시
