@@ -4,7 +4,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5 import uic
 # import task
-from Task import task_email
+from Task import task_email_02
 from Task import task_musicplayer
 from Task import task_news
 
@@ -43,7 +43,7 @@ class WindowClass(QMainWindow, form_class):
     
     # dialWindow
     def openEmailWindow(self):
-        task_email.emailWindow(self)
+        task_email_02.emailWindow(self)
         
     def openMusicPlayerWindow(self):
         task_musicplayer.musicPlayerWindow(self)
