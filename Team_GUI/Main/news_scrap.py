@@ -38,9 +38,9 @@ def naver_weather():
   find_wind = data2[1].text
   find_sens = data2[2].text
   
-  print("습도 :",find_hum)
-  print("바람 :",find_wind)
-  print("체감온도 :",find_sens+'C')
+  # print("습도 :",find_hum)
+  # print("바람 :",find_wind)
+  # print("체감온도 :",find_sens+'C')
   
 
   data3 = soup.find('ul', {'class' : 'today_chart_list'})
