@@ -17,9 +17,9 @@ class weatherWindow(QDialog):
         self.show()
 
         self.btn_back.clicked.connect(self.backToMainWindow)
-        self.btn_back.setStyleSheet("color: #000000; border-style: solid; border-width: 2px; border-color: #000000; border-radius: 10px; font:bold;")
+        self.btn_back.setStyleSheet("color: white; border-style: solid; border-width: 2px; border-color: white; border-radius: 10px; font:bold;")
 
-        self.label_text.setStyleSheet("color: #000000; border-style: solid; border-width: 2px; border-color: #000000; border-radius: 10px; font:bold;")
+        self.label_text.setStyleSheet("color: white; border-style: solid; border-width: 2px; border-color: white; border-radius: 10px; font:bold;")
         self.label_text.setFont(QFont("나눔", 15))
         self.label_text.setText(naver_weather())
         
