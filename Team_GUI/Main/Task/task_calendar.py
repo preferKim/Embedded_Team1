@@ -1,37 +1,52 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog, QApplication
 
 
 
-class calenderWindow(QDialog):
+class calendarWindow(QDialog):
     def __init__(self, parent):  # 부모 윈도우(메모장)가 있기 때문에 parent 적어주기
-        super(calenderWindow, self).__init__(parent)
-        uic.loadUi("Task/task_calender_list.ui", self)
-        self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
+        super(calendarWindow, self).__init__(parent)
+        uic.loadUi("Task/task_calendar_list.ui", self)
+        #self.setGeometry(500, 500, 600, 400)  # x, y, w, h : 창 크기 조절
         self.setupUI()
         self.show()
         
+        self.label_bar.setStyleSheet('color: white;background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(200, 200, 200, 255), stop:0.305419 rgba(40, 40, 40, 255), stop:0.935961 rgba(10, 11, 18, 0), stop:1 rgba(100, 100, 100, 255)); border=0px')
+
         # 데이터 관리 변수
         self.current_row = 0
         self.num_to_load = 24
         
         # 버튼 기능 연결
         self.btn_load_schedule.clicked.connect(self.loadScheduleFunction) 
-        self.btn_next_page.clicked.connect(self.loadNextPage) 
-        self.btn_prev_page.clicked.connect(self.loadPrevPage) 
+        
+        self.btn_next_page.clicked.connect(self.loadNextPage)
+        self.btn_next_page.setIcon(QIcon('image_source/next_p.png'))
+        self.btn_next_page.setIconSize(QSize(50,50))
+        self.btn_next_page.setStyleSheet('border:0px;')
+
+        self.btn_prev_page.clicked.connect(self.loadPrevPage)        
+        self.btn_prev_page.setIcon(QIcon('image_source/prev_p.png'))
+        self.btn_prev_page.setIconSize(QSize(50,50))
+        self.btn_prev_page.setStyleSheet('border:0px;') 
 
         # back 버튼 기능 연결
-        self.btn_back.clicked.connect(self.backToMainWindow) 
+        self.btn_back.clicked.connect(self.backToMainWindow)
+        self.btn_back.setIcon(QIcon('image_source/home.png'))
+        self.btn_back.setIconSize(QSize(60,60))
+        self.btn_back.setStyleSheet('border:0px;')
 
 
     # UI 타이틀, 크기 조절
     def setupUI(self):
         # self.tableWidget = QTableWidget(self)
 
-        self.setWindowTitle("Calender")  # 윈도우 타이틀 설정
+        self.setWindowTitle("Calendar")  # 윈도우 타이틀 설정
         self.tableWidget.setColumnWidth(0, 80) 
         self.tableWidget.setColumnWidth(1, 70)
         self.tableWidget.setColumnWidth(2, 70)

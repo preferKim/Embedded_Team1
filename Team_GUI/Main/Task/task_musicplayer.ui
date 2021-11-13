@@ -16,14 +16,14 @@
   <widget class="QPushButton" name="btn_back">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>111</width>
-     <height>61</height>
+     <x>20</x>
+     <y>30</y>
+     <width>60</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string/>
    </property>
   </widget>
   <widget class="QFrame" name="frame_2">
@@ -84,7 +84,7 @@
   <widget class="QPushButton" name="btn_next">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>430</x>
      <y>270</y>
      <width>100</width>
      <height>100</height>
@@ -97,7 +97,7 @@
   <widget class="QPushButton" name="btn_prev">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>70</x>
      <y>270</y>
      <width>100</width>
      <height>100</height>
@@ -118,7 +118,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>13</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>

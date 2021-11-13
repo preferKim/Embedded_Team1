@@ -22,6 +22,7 @@ class musicPlayerWindow(QDialog):
         # 상단 바
         self.label_bar.setStyleSheet('color: white;background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(200, 200, 200, 255), stop:0.305419 rgba(40, 40, 40, 255), stop:0.935961 rgba(10, 11, 18, 0), stop:1 rgba(100, 100, 100, 255)); border=0px')
         self.label_song.setStyleSheet('color: white;')
+        self.label_ALBUM.setStyleSheet('border: 4px solid white;')
 
         ### 기능연결 ###
         # 앨범 이미지, 노래 타이틀
@@ -29,6 +30,7 @@ class musicPlayerWindow(QDialog):
         self.list_song_titles = self.setSongTitle()
         self.label_ALBUM.setPixmap(self.loadImageFromFile(
             "image_source/song_defalut_cover.png", 200))
+        self.label_ALBUM.setStyleSheet('border: 4px solid white;')
 
         # Play, Stop
         self.btn_play.clicked.connect(self.playSongFunction)
@@ -53,7 +55,9 @@ class musicPlayerWindow(QDialog):
 
         # Back: Close Window
         self.btn_back.clicked.connect(self.backToMainWindow)
-        self.btn_back.setStyleSheet("color: white; border-style: solid; border-width: 2px; border-color: white; border-radius: 10px; font:bold;")
+        self.btn_back.setIcon(QIcon('image_source/home.png'))
+        self.btn_back.setIconSize(QSize(60,60))
+        self.btn_back.setStyleSheet('border:0px;')
 
     # 이미지 로드
     # source_url의 이미지로 qPixmap 객체생성 후, 해당 객체 리턴

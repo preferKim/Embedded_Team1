@@ -14,7 +14,7 @@ from Task import run_email
 from Task import task_musicplayer
 from Task import task_news 
 from Task import task_loading
-from Task import task_calender
+from Task import task_calendar
 from Task import tast_weather
 from news_scrap import naver_current_weather, naver_current_weather_Icon # 날씨
 
@@ -72,7 +72,7 @@ class WindowClass(QMainWindow, form_class):
         self.btn_run_news.setStyleSheet('border:0px;')
         
         # 캘린더
-        self.btn_run_calender.clicked.connect(self.openCalenderWindow)
+        self.btn_run_calender.clicked.connect(self.openCalendarWindow)
         self.btn_run_calender.setIcon(QIcon('image_source/cal_1.png'))
         self.btn_run_calender.setIconSize(QSize(125,125))
         self.btn_run_calender.setStyleSheet('border:0px;')
@@ -109,8 +109,8 @@ class WindowClass(QMainWindow, form_class):
     def openWeather(self):
         tast_weather.weatherWindow(self)
     
-    def openCalenderWindow(self):
-        task_calender.calenderWindow(self)
+    def openCalendarWindow(self):
+        task_calendar.calendarWindow(self)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
