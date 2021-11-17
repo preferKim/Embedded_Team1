@@ -18,7 +18,9 @@ class weatherWindow(QDialog):
         self.label_bar.setStyleSheet('color: white;background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(200, 200, 200, 255), stop:0.305419 rgba(40, 40, 40, 255), stop:0.935961 rgba(10, 11, 18, 0), stop:1 rgba(100, 100, 100, 255)); border=0px')
 
         self.btn_back.clicked.connect(self.backToMainWindow)
-        self.btn_back.setStyleSheet("color: white; border-style: solid; border-width: 2px; border-color: white; border-radius: 10px; font:bold;")
+        self.btn_back.setIcon(QIcon('image_source/home.png'))
+        self.btn_back.setIconSize(QSize(60,60))
+        self.btn_back.setStyleSheet('border:0px;')
 
         self.label_text.setStyleSheet("color: white; border-style: solid; border-width: 2px; border-color: white; border-radius: 10px; font:bold;")
         self.label_text.setFont(QFont("나눔", 15))
