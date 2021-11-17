@@ -13,6 +13,9 @@ from Task import task_email_02
 from Task import run_email
 from Task import task_musicplayer
 from Task import task_news 
+from Task import task_calendar
+from Task import task_game
+
 from Task import task_loading
 from Task import task_calendar
 from Task import tast_weather
@@ -72,6 +75,11 @@ class WindowClass(QMainWindow, form_class):
         self.btn_run_news.setStyleSheet('border:0px;')
         
         # 캘린더
+        self.btn_run_calendar.clicked.connect(self.openCalendarWindow)
+        
+        # 게임
+        self.btn_run_game.clicked.connect(self.openGameWindow)
+        
         self.btn_run_calender.clicked.connect(self.openCalendarWindow)
         self.btn_run_calender.setIcon(QIcon('image_source/cal_1.png'))
         self.btn_run_calender.setIconSize(QSize(125,125))
@@ -111,6 +119,9 @@ class WindowClass(QMainWindow, form_class):
     
     def openCalendarWindow(self):
         task_calendar.calendarWindow(self)
+        
+    def openGameWindow(self):
+        task_game.gameWindow(self)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
