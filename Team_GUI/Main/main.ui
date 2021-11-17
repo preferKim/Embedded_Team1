@@ -79,17 +79,30 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_run_calender">
+   <widget class="QPushButton" name="btn_run_calendar">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>220</x>
       <y>310</y>
       <width>151</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Run Calender</string>
+     <string>Run Calendar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_run_game">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>310</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Run Game</string>
     </property>
    </widget>
   </widget>
