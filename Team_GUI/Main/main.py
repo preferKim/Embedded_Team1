@@ -79,7 +79,7 @@ class WindowClass(QMainWindow, form_class):
         
         # 게임
         self.btn_run_game.clicked.connect(self.openGameWindow)
-        self.btn_run_game.setIcon(QIcon('image_source/game_5.png'))
+        self.btn_run_game.setIcon(QIcon('image_source/game_6.png'))
         self.btn_run_game.setIconSize(QSize(115,115))
         self.btn_run_game.setStyleSheet('border:0px;')
 
