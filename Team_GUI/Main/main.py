@@ -48,7 +48,7 @@ class WindowClass(QMainWindow, form_class):
         image = urllib.request.urlopen(url).read()
         pixmap = QPixmap()
         pixmap.loadFromData(image)
-        pixmap = pixmap.scaled(36, 36)
+        pixmap = pixmap.scaled(100, 100)
         self.label_icon1.setPixmap(pixmap)
 
         # 바
@@ -79,11 +79,14 @@ class WindowClass(QMainWindow, form_class):
         
         # 게임
         self.btn_run_game.clicked.connect(self.openGameWindow)
-        
-        self.btn_run_calender.clicked.connect(self.openCalendarWindow)
-        self.btn_run_calender.setIcon(QIcon('image_source/cal_1.png'))
-        self.btn_run_calender.setIconSize(QSize(125,125))
-        self.btn_run_calender.setStyleSheet('border:0px;')
+        self.btn_run_game.setIcon(QIcon('image_source/game_5.png'))
+        self.btn_run_game.setIconSize(QSize(115,115))
+        self.btn_run_game.setStyleSheet('border:0px;')
+
+        self.btn_run_calendar.clicked.connect(self.openCalendarWindow)
+        self.btn_run_calendar.setIcon(QIcon('image_source/cal_1.png'))
+        self.btn_run_calendar.setIconSize(QSize(125,125))
+        self.btn_run_calendar.setStyleSheet('border:0px;')
 
         # 시간 표시 상태바
         self.statusBar().showMessage(self.datetime.toString(Qt.DefaultLocaleShortDate)) 
@@ -92,7 +95,7 @@ class WindowClass(QMainWindow, form_class):
         # 날씨 버튼
         weather = naver_current_weather()
         self.btn_weather.clicked.connect(self.openWeather)
-        self.btn_weather.setText(weather)
+        self.btn_weather.setText('\n\n\n\n\n\n'+weather)
         self.btn_weather.setStyleSheet('color:white;font-size:12pt; font:bold; border:0px;')
         
         
